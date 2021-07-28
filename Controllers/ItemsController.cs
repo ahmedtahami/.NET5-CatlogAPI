@@ -10,12 +10,12 @@ namespace Catlog.Controllers
     [Route("[controller]")]
     public class ItemsController : ControllerBase
     {
-        private readonly InMemoryItemsRepository _itemsRepository;
+        private readonly IItemsRepository _itemsRepository;
 
         // controller constructor
-        public ItemsController()
+        public ItemsController(IItemsRepository _itemsRepository)
         {
-            _itemsRepository = new();
+            this._itemsRepository = _itemsRepository;
         }
 
         // cretae an IEnumerable method to get all items

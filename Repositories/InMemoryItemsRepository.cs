@@ -6,13 +6,13 @@ using Catlog.Entites;
 namespace Catlog.Repositories
 {
     //make a class InMemoryItemsRepository
-    public class InMemoryItemsRepository
+    public class InMemoryItemsRepository : IItemsRepository
     {
         private readonly List<Item> items = new()
         {
-            new Item { Id = Guid.NewGuid(), Name = "Potion", Price = 9, CreatedDate = DateTimeOffset.UtcNow},
-            new Item { Id = Guid.NewGuid(), Name = "Iron Sword", Price = 20, CreatedDate = DateTimeOffset.UtcNow},
-            new Item { Id = Guid.NewGuid(), Name = "Bronze Sheild", Price = 18, CreatedDate = DateTimeOffset.UtcNow},
+            new Item { Id = Guid.NewGuid(), Name = "Potion", Price = 9, CreatedDate = DateTimeOffset.UtcNow },
+            new Item { Id = Guid.NewGuid(), Name = "Iron Sword", Price = 20, CreatedDate = DateTimeOffset.UtcNow },
+            new Item { Id = Guid.NewGuid(), Name = "Bronze Sheild", Price = 18, CreatedDate = DateTimeOffset.UtcNow },
         };
 
         public IEnumerable<Item> GetItems()
@@ -23,5 +23,5 @@ namespace Catlog.Repositories
         {
             return items.Where(x => x.Id == id).SingleOrDefault();
         }
-    }   
+    }
 }
